@@ -6,7 +6,7 @@
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 20:27:19 by alngo             #+#    #+#             */
-/*   Updated: 2017/01/18 17:05:27 by alngo            ###   ########.fr       */
+/*   Updated: 2017/02/23 18:48:47 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int						algo(t_pc **dock, t_field *field)
 		return (0);
 	if (!(field->field = ft_strnew(128)))
 		return (0);
-	sqr = 2;
+	sqr = field->min_w;
 	lvl = 0;
 	ft_memset(field->field, '.', 128);
 	while (sqr * sqr < (field->size * 4))
@@ -75,19 +75,18 @@ int						core(const int fd, t_pc **dock, t_field *field)
 
 	if (!(dock = (t_pc **)ft_memalloc(sizeof(t_pc *) * 27)))
 		return (0);
-	if (!(field = (t_field *)ft_memalloc(sizeof(t_field))))
-		return (0);
-	(*field).size = 0;
-	(*field).length = 0;
-	while ((ret = read(fd, buf, 21)) >= 20 && (*field).size < 26 && ret > 0)
+	field->size = 0;
+	field->length = 0;
+	field->min_w = 2;
+	while ((ret = read(fd, buf, 21)) >= 20 && field->size < 26 && ret > 0)
 	{
 		buf[ret] = '\0';
-		if (!(dock_pc(dock, buf, (*field).size)))
+		if (!(dock_pc(dock, buf, field->size, field)))
 			return (cleaner(dock, field));
-		(*field).size++;
-		(*field).length += ret;
+		field->size++;
+		field->length += ret;
 	}
-	if (ret || ((*field).length + 1) % 21)
+	if (ret || (field->length + 1) % 21)
 		return (cleaner(dock, field));
 	if (!(ret = algo(dock, field)))
 		return (cleaner(dock, field));
@@ -101,15 +100,14 @@ int						main(int ac, char **av)
 {
 	int					fd;
 	t_pc				**dock;
-	t_field				*field;
+	t_field				field;
 
 	dock = NULL;
-	field = NULL;
 	if (ac != 2)
 		return (error("fillit: <one input file>\n"));
 	if ((fd = open(av[1], O_RDONLY)) == -1)
 		return (error("error\n"));
-	if (!(core(fd, dock, field)))
+	if (!(core(fd, dock, &field)))
 		return (error("error\n"));
 	return (0);
 }

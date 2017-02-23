@@ -6,13 +6,14 @@
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 20:28:25 by alngo             #+#    #+#             */
-/*   Updated: 2016/12/13 20:32:15 by alngo            ###   ########.fr       */
+/*   Updated: 2017/02/23 18:48:50 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # include <fcntl.h>
+# define MAX(a, b) (a > b ? a : b)
 
 typedef struct	s_pc
 {
@@ -29,6 +30,7 @@ typedef struct	s_field
 	char		*field;
 	int			size;
 	int			length;
+	int			min_w;
 }				t_field;
 
 /*
@@ -42,7 +44,7 @@ int				backtrack(t_pc **pc, t_field *field, int sqr, int i);
 */
 int				error(char *s);
 int				cleaner(t_pc **dock, t_field *field);
-int				dock_pc(t_pc **dock, char *buf, int i);
+int				dock_pc(t_pc **dock, char *buf, int i, t_field *field);
 int				print_resolution(t_field *field, int sqr);
 /*
 **__________GATHER________

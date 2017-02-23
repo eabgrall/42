@@ -6,7 +6,7 @@
 #    By: alngo <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 14:00:05 by alngo             #+#    #+#              #
-#    Updated: 2017/01/10 14:51:06 by alngo            ###   ########.fr        #
+#    Updated: 2017/02/23 18:38:32 by alngo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c -I $(INCLUDES) $<
 
 $(NAME): $(OBJS)
-	make -C libft/ fclean && make -C libft/
+	make -C libft/
 	clang -o $(NAME) $(OBJS) -I $(INCLUDES) -L libft/ -lft
 
 clean:
