@@ -6,7 +6,7 @@
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 20:26:52 by alngo             #+#    #+#             */
-/*   Updated: 2016/12/13 20:34:36 by alngo            ###   ########.fr       */
+/*   Updated: 2017/02/23 19:36:38 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int						cleaner(t_pc **dock, t_field *field)
 	int					i;
 
 	if (field)
-		free(field);
+		free(field->field);
 	if (dock)
 	{
 		if (*dock)
@@ -41,7 +41,7 @@ int						cleaner(t_pc **dock, t_field *field)
 	return (0);
 }
 
-int						dock_pc(t_pc **dock, char *buf, int i)
+int						dock_pc(t_pc **dock, char *buf, int i, t_field *field)
 {
 	int					y;
 	char				*tmp;
@@ -66,6 +66,7 @@ int						dock_pc(t_pc **dock, char *buf, int i)
 		y++;
 	}
 	dock[i]->l = i + 'A';
+	field->min_w = MAX(MAX(dock[i]->w, field->min_w), dock[i]->h);
 	return (1);
 }
 
