@@ -38,7 +38,7 @@ int					side_hashtag(char *s)
 		}
 		i++;
 	}
-	return ((side == 6 || side == 8) && hashtag == 4);
+	return ((side == 6 || side == 8) && hashtag == 4 && !(s[i]));
 }
 
 int					string_look(char *s)
