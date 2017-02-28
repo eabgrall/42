@@ -6,7 +6,7 @@
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 20:26:52 by alngo             #+#    #+#             */
-/*   Updated: 2017/02/23 18:48:49 by alngo            ###   ########.fr       */
+/*   Updated: 2017/02/28 15:37:06 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ int						dock_pc(t_pc **dock, char *buf, int i, t_field *field)
 		y++;
 	}
 	dock[i]->l = i + 'A';
+<<<<<<< HEAD
 	field->min_w = MAX(dock[i]->w, field->min_w);
+=======
+	field->min_w = MAX(MAX(dock[i]->w, field->min_w), dock[i]->h);
+>>>>>>> 63547c3568e2e2238cbb2ac7b487a25cbeab8cfe
 	return (1);
 }
 
