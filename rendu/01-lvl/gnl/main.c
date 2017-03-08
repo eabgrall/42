@@ -12,7 +12,10 @@
 
 #include "get_next_line.h"
 #include "libft.h"
+//#include "gnl.h"
 #include <fcntl.h>
+
+char	*ft_strmerge(char *a, char *b);
 
 int			main(int ac, char **av)
 {
@@ -24,7 +27,7 @@ int			main(int ac, char **av)
 	if (ac && **av)
 	{
 		i = 0;
-		fd = 0;
+		fd = open(av[1], O_RDONLY);
 		while ((ret = get_next_line(fd, &line)))
 		{
 			ft_putnbr(ret);

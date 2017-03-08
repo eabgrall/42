@@ -96,5 +96,6 @@ int					ft_sqrt(int nb);
 void				ft_foreach(int *tab, int length, void (*f)(int));
 char				*ft_strrenew(char *s, size_t n);
 int					ft_getnbr(char *s, int **tab);
+char				*ft_strconcat(char *s1, char *s2);
 
 #endif

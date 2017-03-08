@@ -84,11 +84,14 @@ SRCS = ft_putchar_fd.c\
 	   ft_chachange.c\
 	   ft_lstaddafter.c\
 	   ft_strrenew.c\
-	   ft_getnbr.c
+	   ft_getnbr.c\
+	   ft_strconcat.c\
 
 OBJS = $(SRCS:.c=.o)
 
 FLAG = -Wall -Wextra -Werror
+
+.PHONY: test clean fclean
 
 all: $(NAME)
 
