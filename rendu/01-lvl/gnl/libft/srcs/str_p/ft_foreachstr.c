@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_foreachstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:24:01 by alngo             #+#    #+#             */
-/*   Updated: 2016/11/29 14:24:10 by alngo            ###   ########.fr       */
+/*   Created: 2017/02/03 14:07:07 by alngo             #+#    #+#             */
+/*   Updated: 2017/02/07 20:14:27 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 21
+#include "libft.h"
 
-typedef struct			s_page
+int			ft_foreachstr(char **tab, int (*f)(char *))
 {
-	int					fd;
-	char				*str;
-	struct s_page		*next;
-}						t_page;
+	int		i;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (tab[i])
+	{
+		if (!((*f)(tab[i])))
+			return (0);
+		i++;
+	}
+	return (1);
+}

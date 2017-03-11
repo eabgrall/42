@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:24:01 by alngo             #+#    #+#             */
-/*   Updated: 2016/11/29 14:24:10 by alngo            ###   ########.fr       */
+/*   Created: 2017/02/07 17:32:09 by alngo             #+#    #+#             */
+/*   Updated: 2017/02/07 20:15:03 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 21
+#include "libft.h"
 
-typedef struct			s_page
+long					ft_strtol(const char *s, int base)
 {
-	int					fd;
-	char				*str;
-	struct s_page		*next;
-}						t_page;
+	char				*tmp;
+	unsigned long		n;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	tmp = (char *)s;
+	while (ft_isspace(*tmp))
+		tmp++;
+	n = ft_stoul(s, base);
+	if (*tmp == '-' && n <= LONG_MAX)
+		return (LONG_MIN);
+	else if (*tmp != '-' && LONG_MAX < n)
+		return (LONG_MAX);
+	else
+		return ((long)n);
+}

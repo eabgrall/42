@@ -6,12 +6,11 @@
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:25:28 by alngo             #+#    #+#             */
-/*   Updated: 2017/02/21 15:17:17 by alngo            ###   ########.fr       */
+/*   Updated: 2016/12/16 19:34:43 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "get_next_line.h"
 
 static t_page		*ft_open_book(const int fd, t_page **book)
 {
@@ -41,7 +40,7 @@ static t_page		*ft_open_book(const int fd, t_page **book)
 	return (NULL);
 }
 
-static int			ft_stack(char **s, char *buf, int n)
+static int			ft_machin(char **s, char *buf, int n)
 {
 	size_t			max;
 	char			*tmp;
@@ -88,8 +87,7 @@ static void			ft_page_del(const int fd, t_page **book)
 	before->next = after;
 }
 
-static int			ft_destack(char **s, char **line, const int fd,
-		t_page **book)
+static int			ft_truc(char **s, char **line, const int fd, t_page **book)
 {
 	char			*tmp;
 	char			*tmps;
@@ -132,13 +130,13 @@ int					get_next_line(const int fd, char **line)
 		if (ret == -1)
 			return (-1);
 		buf[ret] = '\0';
-		nfinder = ft_stack(&(page->str), buf, BUFF_SIZE);
+		nfinder = ft_machin(&(page->str), buf, BUFF_SIZE);
 		if (nfinder == -1)
 			return (-1);
 		else if (nfinder)
 			break ;
 	}
 	if (page->str)
-		return (ft_destack(&(page->str), line, fd, &book));
+		return (ft_truc(&(page->str), line, fd, &book));
 	return (0);
 }

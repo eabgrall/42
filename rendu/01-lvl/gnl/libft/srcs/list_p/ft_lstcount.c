@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:24:01 by alngo             #+#    #+#             */
-/*   Updated: 2016/11/29 14:24:10 by alngo            ###   ########.fr       */
+/*   Created: 2016/12/02 20:51:25 by alngo             #+#    #+#             */
+/*   Updated: 2016/12/02 21:52:56 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 21
+#include "libft.h"
 
-typedef struct			s_page
+size_t					ft_lstcount(t_list *lst)
 {
-	int					fd;
-	char				*str;
-	struct s_page		*next;
-}						t_page;
+	size_t				i;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

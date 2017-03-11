@@ -6,107 +6,159 @@
 #    By: alngo <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 14:00:05 by alngo             #+#    #+#              #
-#    Updated: 2016/11/14 12:14:11 by alngo            ###   ########.fr        #
+#    Updated: 2017/02/03 14:56:44 by alngo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = ft_putchar_fd.c\
-	   ft_putstr_fd.c\
-	   ft_putnbr_fd.c\
-	   ft_putendl_fd.c\
-	   ft_putchar.c\
-	   ft_putstr.c\
-	   ft_putnbr.c\
-	   ft_putendl.c\
-	   ft_isdigit.c\
-	   ft_isupper.c\
-	   ft_islower.c\
-	   ft_isalpha.c\
-	   ft_isalnum.c\
-	   ft_isspace.c\
-	   ft_isascii.c\
-	   ft_isprint.c\
-	   ft_toupper.c\
-	   ft_tolower.c\
-	   ft_atoi.c\
-	   ft_itoa_base.c\
-	   ft_itoa.c\
-	   ft_bzero.c\
-	   ft_memset.c\
-	   ft_memalloc.c\
-	   ft_memdel.c\
-	   ft_memcpy.c\
-	   ft_memccpy.c\
-	   ft_memmove.c\
-	   ft_memchr.c\
-	   ft_memcmp.c\
-	   ft_strlen.c\
-	   ft_strdup.c\
-	   ft_strcpy.c\
-	   ft_strncpy.c\
-	   ft_strcmp.c\
-	   ft_strncmp.c\
-	   ft_strcat.c\
-	   ft_strncat.c\
-	   ft_strlcat.c\
-	   ft_strchr.c\
-	   ft_strrchr.c\
-	   ft_strstr.c\
-	   ft_strnstr.c\
-	   ft_strcasestr.c\
-	   ft_strnew.c\
-	   ft_strdel.c\
-	   ft_strclr.c\
-	   ft_striter.c\
-	   ft_striteri.c\
-	   ft_strmap.c\
-	   ft_strmapi.c\
-	   ft_strequ.c\
-	   ft_strnequ.c\
-	   ft_strsub.c\
-	   ft_strjoin.c\
-	   ft_strtrim.c\
-	   ft_strsplit.c\
-	   ft_lstnew.c\
-	   ft_lstiter.c\
-	   ft_lstdelone.c\
-	   ft_lstdel.c\
-	   ft_lstadd.c\
-	   ft_lstmap.c\
-	   ft_iterative_factorial.c\
-	   ft_sqrt.c\
-	   ft_foreach.c\
-	   ft_memrealloc.c\
-	   ft_lstdelcont.c\
-	   ft_lstat.c\
-	   ft_chachange.c\
-	   ft_lstaddafter.c\
-	   ft_strrenew.c\
-	   ft_getnbr.c\
-	   ft_strconcat.c\
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
+SRCDIR = ./srcs/
+OBJDIR = ./objs/
+INCDIR = ./includes
+
+STRINGPATH = string/
+STDLIBPATH = stdlib/
+CTYPEPATH = ctype/
+LISTPPATH = list_p/
+STRPPATH = str_p/
+PUTPPATH = put_p/
+MEMPPATH = mem_p/
+MATHPPATH = math_p/
+PERSPPATH = pers_p/
+CONVPPATH = conv_p/
+
+SRC = $(STRINGPATH)ft_memchr.c\
+	  $(STRINGPATH)ft_memcmp.c\
+	  $(STRINGPATH)ft_memcpy.c\
+	  $(STRINGPATH)ft_memmove.c\
+	  $(STRINGPATH)ft_memset.c\
+	  $(STRINGPATH)ft_strcat.c\
+	  $(STRINGPATH)ft_strchr.c\
+	  $(STRINGPATH)ft_strcmp.c\
+	  $(STRINGPATH)ft_strcpy.c\
+	  $(STRINGPATH)ft_strlen.c\
+	  $(STRINGPATH)ft_strncat.c\
+	  $(STRINGPATH)ft_strncmp.c\
+	  $(STRINGPATH)ft_strncpy.c\
+	  $(STRINGPATH)ft_strrchr.c\
+	  $(STRINGPATH)ft_strstr.c\
+	  $(STDLIBPATH)ft_abs.c\
+	  $(STDLIBPATH)ft_labs.c\
+	  $(STDLIBPATH)ft_div.c\
+	  $(STDLIBPATH)ft_ldiv.c\
+	  $(STDLIBPATH)ft_atoi.c\
+	  $(STDLIBPATH)ft_atol.c\
+	  $(STDLIBPATH)ft_strtol.c\
+	  $(STDLIBPATH)ft_stoul.c\
+	  $(CTYPEPATH)ft_isdigit.c\
+	  $(CTYPEPATH)ft_isupper.c\
+	  $(CTYPEPATH)ft_islower.c\
+	  $(CTYPEPATH)ft_isalpha.c\
+	  $(CTYPEPATH)ft_isalnum.c\
+	  $(CTYPEPATH)ft_isspace.c\
+	  $(CTYPEPATH)ft_isascii.c\
+	  $(CTYPEPATH)ft_isprint.c\
+	  $(CTYPEPATH)ft_toupper.c\
+	  $(CTYPEPATH)ft_tolower.c\
+	  $(LISTPPATH)ft_lstnew.c\
+	  $(LISTPPATH)ft_lstat.c\
+	  $(LISTPPATH)ft_lstmap.c\
+	  $(LISTPPATH)ft_lstiter.c\
+	  $(LISTPPATH)ft_lstdelone.c\
+	  $(LISTPPATH)ft_lstdel.c\
+	  $(LISTPPATH)ft_lstadd.c\
+	  $(LISTPPATH)ft_lstaddafter.c\
+	  $(LISTPPATH)ft_lstcount.c\
+	  $(STRPPATH)ft_strdup.c\
+	  $(STRPPATH)ft_strlcat.c\
+	  $(STRPPATH)ft_strnstr.c\
+	  $(STRPPATH)ft_strcasestr.c\
+	  $(STRPPATH)ft_strnew.c\
+	  $(STRPPATH)ft_strdel.c\
+	  $(STRPPATH)ft_strclr.c\
+	  $(STRPPATH)ft_striter.c\
+	  $(STRPPATH)ft_striteri.c\
+	  $(STRPPATH)ft_strmap.c\
+	  $(STRPPATH)ft_strmapi.c\
+	  $(STRPPATH)ft_strequ.c\
+	  $(STRPPATH)ft_strnequ.c\
+	  $(STRPPATH)ft_strsub.c\
+	  $(STRPPATH)ft_strjoin.c\
+	  $(STRPPATH)ft_strtrim.c\
+	  $(STRPPATH)ft_strsplit.c\
+	  $(STRPPATH)ft_strrenew.c\
+	  $(STRPPATH)ft_chachange.c\
+	  $(STRPPATH)ft_foreachar.c\
+	  $(STRPPATH)ft_foreachstr.c\
+	  $(STRPPATH)ft_countpad.c\
+	  $(STRPPATH)ft_strlenchr.c\
+	  $(PUTPPATH)ft_putchar_fd.c\
+	  $(PUTPPATH)ft_putstr_fd.c\
+	  $(PUTPPATH)ft_putnbr_fd.c\
+	  $(PUTPPATH)ft_putendl_fd.c\
+	  $(PUTPPATH)ft_putchar.c\
+	  $(PUTPPATH)ft_putstr.c\
+	  $(PUTPPATH)ft_putnbr.c\
+	  $(PUTPPATH)ft_putendl.c\
+	  $(PUTPPATH)ft_putstrtab.c\
+	  $(PUTPPATH)ft_putinttab.c\
+	  $(MEMPPATH)ft_memalloc.c\
+	  $(MEMPPATH)ft_memrealloc.c\
+	  $(MEMPPATH)ft_memdel.c\
+	  $(MEMPPATH)ft_memccpy.c\
+	  $(MEMPPATH)ft_bzero.c\
+	  $(MATHPPATH)ft_sqrt.c\
+	  $(MATHPPATH)ft_iterative_factorial.c\
+	  $(MATHPPATH)ft_foreach.c\
+	  $(MATHPPATH)ft_pow.c\
+	  $(PERSPPATH)get_next_line.c\
+	  $(PERSPPATH)miniprintf.c\
+	  $(CONVPPATH)ft_itoa_base.c\
+	  $(CONVPPATH)ft_itoa.c\
 
 OBJS = $(SRCS:.c=.o)
 
-FLAG = -Wall -Wextra -Werror
+.PHONY: all build clean fclean re
 
-.PHONY: test clean fclean
+SRC := $(filter $(addprefix %, .c), $(SRC))
+SRCS = $(addprefix $(SRCDIR), $(SRC))
+OBJS = $(addprefix $(OBJDIR), $(addsuffix .o, $(basename $(SRC))))
+OBJS_DIRS = $(sort $(dir $(OBJS)))
+
+INCS_DIRS = $(addsuffix /, $(INCDIR))
+INCS = $(addprefix -I, $(INCS_DIRS))
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAG) -c $(SRCS)
+$(NAME): build $(LIBS) $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-test: all
-	gcc $(FLAG) main.c -L. -lft
+build:
+	mkdir -p $(OBJDIR)
+	mkdir -p $(OBJS_DIRS)
 
 clean:
-	/bin/rm -f $(OBJS)
+	/bin/rm -f $(LIBS)
+	/bin/rm -rf $(OBJDIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+test:
+	$(CC) $(CFLAGS) -fsanitize=address main.c -I $(INCDIR) -L. -lft
+
+testclean:
+	/bin/rm -f a.out
+
+testfclean:
+	/bin/rm -f main.c
+
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	$(CC) -c -o $@ $< $(INCS) $(CFLAGS)

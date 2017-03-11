@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:24:01 by alngo             #+#    #+#             */
-/*   Updated: 2016/11/29 14:24:10 by alngo            ###   ########.fr       */
+/*   Created: 2017/02/07 17:31:34 by alngo             #+#    #+#             */
+/*   Updated: 2017/02/07 17:31:36 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 21
+#include "libft.h"
 
-typedef struct			s_page
+int				main(int ac, char **av)
 {
-	int					fd;
-	char				*str;
-	struct s_page		*next;
-}						t_page;
-
-int						get_next_line(const int fd, char **line);
-
-#endif
+	if (ac == 3)
+		ft_putnbr(ft_strtol(av[1], ft_atoi(av[2])));
+	return (1);
+}

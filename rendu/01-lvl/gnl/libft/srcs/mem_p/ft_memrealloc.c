@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memrealloc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alngo <alngo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 14:24:01 by alngo             #+#    #+#             */
-/*   Updated: 2016/11/29 14:24:10 by alngo            ###   ########.fr       */
+/*   Created: 2016/11/29 14:20:57 by alngo             #+#    #+#             */
+/*   Updated: 2016/11/29 14:21:03 by alngo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 21
+#include "libft.h"
 
-typedef struct			s_page
+void				*ft_memrealloc(void *ap, size_t n)
 {
-	int					fd;
-	char				*str;
-	struct s_page		*next;
-}						t_page;
+	void			*tmp;
 
-int						get_next_line(const int fd, char **line);
-
-#endif
+	if (!(ap))
+		return (ft_memalloc(n));
+	if (!(n))
+	{
+		if (ap)
+			free(ap);
+		return (NULL);
+	}
+	if (!(tmp = ft_memalloc(n)))
+		return (NULL);
+	ft_memcpy(tmp, ap, n);
+	free(ap);
+	return (tmp);
+}
