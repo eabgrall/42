@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alngo <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/14 17:00:50 by alngo             #+#    #+#             */
+/*   Updated: 2016/11/16 12:38:31 by alngo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "get_next_line.h"
+#include <fcntl.h>
+
+char				*ft_truc(char *dest, const char *src, size_t n)
+{
+	char			*tmp;
+
+	if (!(dest))
+	{
+		tmp = ft_strnew(n + 1);
+		tmp = ft_strncpy(tmp, src, n);
+		tmp[n + 1] = '\0';
+		return (tmp);
+	}
+	else
+	{
+		dest = ft_memrealloc(dest, ft_strlen(dest) + n);
+		ft_strlcat(dest, src, ft_strlen(dest) + n);
+	}
+	return (dest);
+}
+
+char				ft_check(char *str, size_t n)
+{
+	while (n--)
+	{
+		if (*str == '\n' || *str == '\0')
+			return (0);
+		str++;
+	}
+	return (1);
