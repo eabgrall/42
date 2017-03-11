@@ -118,6 +118,7 @@ int					ft_foreachar(const char *s, int (*f)(int));
 int					ft_foreachstr(char **tab, int (*f)(char *));
 int					ft_strlenchr(char *s, char c);
 size_t				ft_countpad(char **pad);
+char				*ft_strmerge(char *a, char *b);
 /*
 **_____PUT_P_DIR_____
 */

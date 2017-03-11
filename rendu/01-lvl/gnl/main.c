@@ -22,19 +22,17 @@ int			main(int ac, char **av)
 	char	*line;
 	int		ret;
 	int		fd;
-	int		i;
 
 	if (ac && **av)
 	{
-		i = 0;
 		fd = open(av[1], O_RDONLY);
+		ret = 0;
 		while ((ret = get_next_line(fd, &line)))
 		{
 			ft_putnbr(ret);
-			ft_putendl(line);
+			//ft_putendl(line);
 			if (ret == -1)
 				break ;
-			i++;
 		}
 		close(fd);
 	}

@@ -96,6 +96,7 @@ SRC = $(STRINGPATH)ft_memchr.c\
 	  $(STRPPATH)ft_foreachstr.c\
 	  $(STRPPATH)ft_countpad.c\
 	  $(STRPPATH)ft_strlenchr.c\
+	  $(STRPPATH)ft_strmerge.c\
 	  $(PUTPPATH)ft_putchar_fd.c\
 	  $(PUTPPATH)ft_putstr_fd.c\
 	  $(PUTPPATH)ft_putnbr_fd.c\

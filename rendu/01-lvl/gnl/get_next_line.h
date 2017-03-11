@@ -14,15 +14,16 @@
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 21
 
-typedef struct	s_page
+# include "libft.h"
+
+typedef struct		s_gnl
 {
-	int			fd;
-	char		*str;
-	short		nl;
-	int			ret;
-	int			len;
-}				t_page;
+	int				fd;
+	char			*str;
+	int				ret;
+	short			nl;
+}					t_gnl;
 
-int				get_next_line(int const fd, char **line);
+int					get_next_line(int fd, char **line);
 
-#endif
+ #endif
