@@ -15,7 +15,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include "get_next_line.h"
 # define ABS(Value)			(Value < 0 ? -Value : Value)
 
 /*
@@ -150,7 +149,6 @@ void				ft_foreach(int *tab, int length, void (*f)(int));
 /*
 **_____PERS_P_DIR_____
 */
-int					get_next_line(const int fd, char **line);
 void				miniprintf(const char *fmt, ...);
 /*
 **_____CONV_P_DIR_____

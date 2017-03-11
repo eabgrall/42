@@ -115,7 +115,6 @@ SRC = $(STRINGPATH)ft_memchr.c\
 	  $(MATHPPATH)ft_iterative_factorial.c\
 	  $(MATHPPATH)ft_foreach.c\
 	  $(MATHPPATH)ft_pow.c\
-	  $(PERSPPATH)get_next_line.c\
 	  $(PERSPPATH)miniprintf.c\
 	  $(CONVPPATH)ft_itoa_base.c\
 	  $(CONVPPATH)ft_itoa.c\
